@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'SDWebImageLottieCoder_Example' do
+  pod 'SDWebImageLottieCoder', :path => '../'
+
+  target 'SDWebImageLottieCoder_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
