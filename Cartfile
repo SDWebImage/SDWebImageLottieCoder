@@ -1,0 +1,2 @@
+github "SDWebImage/SDWebImage" ~> 5.6
+github "SDWebImage/librlottie-Xcode" ~> 0.1

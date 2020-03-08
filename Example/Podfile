@@ -1,8 +1,7 @@
 use_frameworks!
 
-platform :ios, '8.0'
-
 target 'SDWebImageLottieCoder_Example' do
+  platform :ios, '9.0'
   pod 'SDWebImageLottieCoder', :path => '../'
 
   target 'SDWebImageLottieCoder_Tests' do
@@ -10,4 +9,9 @@ target 'SDWebImageLottieCoder_Example' do
 
     
   end
+end
+
+target 'SDWebImageLottieCoder-Example-macOS' do
+  platform :osx, '10.10'
+  pod 'SDWebImageLottieCoder', :path => '../'
 end

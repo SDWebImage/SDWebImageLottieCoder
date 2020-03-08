@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "SDWebImageLottieCoder_Example.app"
-               BlueprintName = "SDWebImageLottieCoder_Example"
+               BlueprintIdentifier = "3249BCC124150E0800E29E73"
+               BuildableName = "SDWebImageLottieCoder.framework"
+               BlueprintName = "SDWebImageLottieCoder"
                ReferencedContainer = "container:SDWebImageLottieCoder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "SDWebImageLottieCoder_Example.app"
-            BlueprintName = "SDWebImageLottieCoder_Example"
-            ReferencedContainer = "container:SDWebImageLottieCoder.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "SDWebImageLottieCoder_Tests.xctest"
-               BlueprintName = "SDWebImageLottieCoder_Tests"
-               ReferencedContainer = "container:SDWebImageLottieCoder.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -59,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "SDWebImageLottieCoder_Example.app"
-            BlueprintName = "SDWebImageLottieCoder_Example"
-            ReferencedContainer = "container:SDWebImageLottieCoder.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -76,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "SDWebImageLottieCoder_Example.app"
-            BlueprintName = "SDWebImageLottieCoder_Example"
+            BlueprintIdentifier = "3249BCC124150E0800E29E73"
+            BuildableName = "SDWebImageLottieCoder.framework"
+            BlueprintName = "SDWebImageLottieCoder"
             ReferencedContainer = "container:SDWebImageLottieCoder.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

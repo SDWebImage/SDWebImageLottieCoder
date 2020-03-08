@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3249BB9E2414FB8100E29E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3249BB9D2414FB8100E29E73 /* AppDelegate.m */; };
+		3249BBA02414FB8300E29E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3249BB9F2414FB8300E29E73 /* Assets.xcassets */; };
+		3249BBA32414FB8300E29E73 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3249BBA12414FB8300E29E73 /* MainMenu.xib */; };
+		3249BBA62414FB8300E29E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3249BBA52414FB8300E29E73 /* main.m */; };
+		35B2D5EA7659A6FA2038E406 /* Pods_SDWebImageLottieCoder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791588DF62814977FCC95203 /* Pods_SDWebImageLottieCoder_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +27,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		A6D9AFC663E8EE81F8FC06CB /* Pods_SDWebImageLottieCoder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22655D2A24D655E3D344C4F8 /* Pods_SDWebImageLottieCoder_Tests.framework */; };
-		C4E27CB52986E6CF9011E494 /* Pods_SDWebImageLottieCoder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38D0E5B59EBF05C4190FC23 /* Pods_SDWebImageLottieCoder_Example.framework */; };
+		B615424BB2D005FE778610D8 /* Pods_SDWebImageLottieCoder_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C6CCD2E3467073D6B3D5F6 /* Pods_SDWebImageLottieCoder_Example_macOS.framework */; };
+		E7CD1B420F102FC666372679 /* Pods_SDWebImageLottieCoder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9F62089146CDA246BF44D4 /* Pods_SDWebImageLottieCoder_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22655D2A24D655E3D344C4F8 /* Pods_SDWebImageLottieCoder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottieCoder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4675E56A102F5DE95AA6DD9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3249BB9A2414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDWebImageLottieCoder-Example-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3249BB9C2414FB8100E29E73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3249BB9D2414FB8100E29E73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3249BB9F2414FB8300E29E73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3249BBA22414FB8300E29E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3249BBA42414FB8300E29E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3249BBA52414FB8300E29E73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3249BBA72414FB8300E29E73 /* SDWebImageLottieCoder_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SDWebImageLottieCoder_Example_macOS.entitlements; sourceTree = "<group>"; };
+		4675E56A102F5DE95AA6DD9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		4896D47A187D8A65793D88D6 /* Pods-SDWebImageLottieCoder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Tests/Pods-SDWebImageLottieCoder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SDWebImageLottieCoder_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDWebImageLottieCoder_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,17 +71,29 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6177A7184756110DE6782824 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6177A7184756110DE6782824 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		69EF4B91360718F7559EB21D /* Pods-SDWebImageLottieCoder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Tests.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Tests/Pods-SDWebImageLottieCoder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		791588DF62814977FCC95203 /* Pods_SDWebImageLottieCoder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottieCoder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		791AC71EE35BDE9EBB255787 /* Pods-SDWebImageLottieCoder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Example.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		81B1B898B73995439AE8F854 /* Pods-SDWebImageLottieCoder-Example-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder-Example-macOS.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder-Example-macOS/Pods-SDWebImageLottieCoder-Example-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A38D0E5B59EBF05C4190FC23 /* Pods_SDWebImageLottieCoder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottieCoder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACC91D3A059E6A6BFC7AC918 /* SDWebImageLottieCoder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SDWebImageLottieCoder.podspec; path = ../SDWebImageLottieCoder.podspec; sourceTree = "<group>"; };
+		ACC91D3A059E6A6BFC7AC918 /* SDWebImageLottieCoder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SDWebImageLottieCoder.podspec; path = ../SDWebImageLottieCoder.podspec; sourceTree = "<group>"; };
+		B3C6CCD2E3467073D6B3D5F6 /* Pods_SDWebImageLottieCoder_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottieCoder_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC9F62089146CDA246BF44D4 /* Pods_SDWebImageLottieCoder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottieCoder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03DBD3FEFA131D809093E64 /* Pods-SDWebImageLottieCoder-Example-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder-Example-macOS.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder-Example-macOS/Pods-SDWebImageLottieCoder-Example-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F4697DE42AE2F1406E5A06CB /* Pods-SDWebImageLottieCoder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Example.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3249BB972414FB8100E29E73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B615424BB2D005FE778610D8 /* Pods_SDWebImageLottieCoder_Example_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F587195388D20070C39A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,7 +101,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				C4E27CB52986E6CF9011E494 /* Pods_SDWebImageLottieCoder_Example.framework in Frameworks */,
+				35B2D5EA7659A6FA2038E406 /* Pods_SDWebImageLottieCoder_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,19 +112,34 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				A6D9AFC663E8EE81F8FC06CB /* Pods_SDWebImageLottieCoder_Tests.framework in Frameworks */,
+				E7CD1B420F102FC666372679 /* Pods_SDWebImageLottieCoder_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3249BB9B2414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				3249BB9C2414FB8100E29E73 /* AppDelegate.h */,
+				3249BB9D2414FB8100E29E73 /* AppDelegate.m */,
+				3249BB9F2414FB8300E29E73 /* Assets.xcassets */,
+				3249BBA12414FB8300E29E73 /* MainMenu.xib */,
+				3249BBA42414FB8300E29E73 /* Info.plist */,
+				3249BBA52414FB8300E29E73 /* main.m */,
+				3249BBA72414FB8300E29E73 /* SDWebImageLottieCoder_Example_macOS.entitlements */,
+			);
+			path = "SDWebImageLottieCoder-Example-macOS";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for SDWebImageLottieCoder */,
 				6003F5B5195388D20070C39A /* Tests */,
+				3249BB9B2414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				9F8E430D294944621147A7D5 /* Pods */,
@@ -112,6 +151,7 @@
 			children = (
 				6003F58A195388D20070C39A /* SDWebImageLottieCoder_Example.app */,
 				6003F5AE195388D20070C39A /* SDWebImageLottieCoder_Tests.xctest */,
+				3249BB9A2414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,8 +163,9 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				A38D0E5B59EBF05C4190FC23 /* Pods_SDWebImageLottieCoder_Example.framework */,
-				22655D2A24D655E3D344C4F8 /* Pods_SDWebImageLottieCoder_Tests.framework */,
+				B3C6CCD2E3467073D6B3D5F6 /* Pods_SDWebImageLottieCoder_Example_macOS.framework */,
+				791588DF62814977FCC95203 /* Pods_SDWebImageLottieCoder_Example.framework */,
+				BC9F62089146CDA246BF44D4 /* Pods_SDWebImageLottieCoder_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,14 +233,34 @@
 				F4697DE42AE2F1406E5A06CB /* Pods-SDWebImageLottieCoder_Example.release.xcconfig */,
 				4896D47A187D8A65793D88D6 /* Pods-SDWebImageLottieCoder_Tests.debug.xcconfig */,
 				69EF4B91360718F7559EB21D /* Pods-SDWebImageLottieCoder_Tests.release.xcconfig */,
+				C03DBD3FEFA131D809093E64 /* Pods-SDWebImageLottieCoder-Example-macOS.debug.xcconfig */,
+				81B1B898B73995439AE8F854 /* Pods-SDWebImageLottieCoder-Example-macOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3249BB992414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3249BBAA2414FB8300E29E73 /* Build configuration list for PBXNativeTarget "SDWebImageLottieCoder-Example-macOS" */;
+			buildPhases = (
+				B2E1ADEE82B33E57784820F0 /* [CP] Check Pods Manifest.lock */,
+				3249BB962414FB8100E29E73 /* Sources */,
+				3249BB972414FB8100E29E73 /* Frameworks */,
+				3249BB982414FB8100E29E73 /* Resources */,
+				3E8EC146F7769965E9C95C3B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SDWebImageLottieCoder-Example-macOS";
+			productName = "SDWebImageLottieCoder-Example-macOS";
+			productReference = 3249BB9A2414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6003F589195388D20070C39A /* SDWebImageLottieCoder_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "SDWebImageLottieCoder_Example" */;
@@ -208,7 +269,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				ED2A344BC83083A5752FDD73 /* [CP] Embed Pods Frameworks */,
+				46CFE9FAAD9D9AA896E0CC27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +309,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "lizhuoli1126@126.com";
 				TargetAttributes = {
+					3249BB992414FB8100E29E73 = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +323,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -268,11 +334,21 @@
 			targets = (
 				6003F589195388D20070C39A /* SDWebImageLottieCoder_Example */,
 				6003F5AD195388D20070C39A /* SDWebImageLottieCoder_Tests */,
+				3249BB992414FB8100E29E73 /* SDWebImageLottieCoder-Example-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3249BB982414FB8100E29E73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3249BBA02414FB8300E29E73 /* Assets.xcassets in Resources */,
+				3249BBA32414FB8300E29E73 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F588195388D20070C39A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +393,72 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3E8EC146F7769965E9C95C3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder-Example-macOS/Pods-SDWebImageLottieCoder-Example-macOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-macOS/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageLottieCoder-macOS/SDWebImageLottieCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/librlottie-macOS/librlottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageLottieCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/librlottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder-Example-macOS/Pods-SDWebImageLottieCoder-Example-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46CFE9FAAD9D9AA896E0CC27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageLottieCoder-iOS/SDWebImageLottieCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/librlottie-iOS/librlottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageLottieCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/librlottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2E1ADEE82B33E57784820F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDWebImageLottieCoder-Example-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C86B4CF1CF4CFCB4F94508D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,27 +481,18 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED2A344BC83083A5752FDD73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SDWebImageLottieCoder/SDWebImageLottieCoder.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageLottieCoder.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDWebImageLottieCoder_Example/Pods-SDWebImageLottieCoder_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3249BB962414FB8100E29E73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3249BBA62414FB8300E29E73 /* main.m in Sources */,
+				3249BB9E2414FB8100E29E73 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F586195388D20070C39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +522,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3249BBA12414FB8300E29E73 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3249BBA22414FB8300E29E73 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		6003F596195388D20070C39A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -416,6 +557,87 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3249BBA82414FB8300E29E73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C03DBD3FEFA131D809093E64 /* Pods-SDWebImageLottieCoder-Example-macOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "SDWebImageLottieCoder-Example-macOS/SDWebImageLottieCoder_Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SDWebImageLottieCoder-Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samsung.SDWebImageLottieCoder-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3249BBA92414FB8300E29E73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81B1B898B73995439AE8F854 /* Pods-SDWebImageLottieCoder-Example-macOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "SDWebImageLottieCoder-Example-macOS/SDWebImageLottieCoder_Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SDWebImageLottieCoder-Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samsung.SDWebImageLottieCoder-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -497,6 +719,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SDWebImageLottieCoder/SDWebImageLottieCoder-Prefix.pch";
 				INFOPLIST_FILE = "SDWebImageLottieCoder/SDWebImageLottieCoder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +736,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SDWebImageLottieCoder/SDWebImageLottieCoder-Prefix.pch";
 				INFOPLIST_FILE = "SDWebImageLottieCoder/SDWebImageLottieCoder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,6 +794,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3249BBAA2414FB8300E29E73 /* Build configuration list for PBXNativeTarget "SDWebImageLottieCoder-Example-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3249BBA82414FB8300E29E73 /* Debug */,
+				3249BBA92414FB8300E29E73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "SDWebImageLottieCoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
