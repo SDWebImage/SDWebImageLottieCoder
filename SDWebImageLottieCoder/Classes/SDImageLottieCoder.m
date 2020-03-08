@@ -209,7 +209,7 @@
 #if SD_UIKIT
     UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:_scale orientation:UIImageOrientationUp];
 #else
-    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:_scale orientation:kCGImageOrientationUp];
+    UIImage *image = [[UIImage alloc] initWithCGImage:imageRef scale:_scale orientation:kCGImagePropertyOrientationUp];
 #endif
     CGImageRelease(imageRef);
     

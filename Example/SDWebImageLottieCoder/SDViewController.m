@@ -23,7 +23,7 @@
     [super viewDidLoad];
     [SDImageCodersManager.sharedManager addCoder:SDImageLottieCoder.sharedCoder];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.imageView = [UIImageView new];
+    self.imageView = [SDAnimatedImageView new];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.frame = self.view.bounds;
     [self.view addSubview:self.imageView];
