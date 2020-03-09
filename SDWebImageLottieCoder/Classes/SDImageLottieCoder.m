@@ -25,6 +25,38 @@
 #define SD_UNLOCK(lock) dispatch_semaphore_signal(lock);
 #endif
 
+/// Calculate the actual thumnail pixel size
+static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio, CGSize thumbnailSize) {
+    CGFloat width = fullSize.width;
+    CGFloat height = fullSize.height;
+    CGFloat resultWidth;
+    CGFloat resultHeight;
+    
+    if (width == 0 || height == 0 || thumbnailSize.width == 0 || thumbnailSize.height == 0 || (width <= thumbnailSize.width && height <= thumbnailSize.height)) {
+        // Full Pixel
+        resultWidth = width;
+        resultHeight = height;
+    } else {
+        // Thumbnail
+        if (preserveAspectRatio) {
+            CGFloat pixelRatio = width / height;
+            CGFloat thumbnailRatio = thumbnailSize.width / thumbnailSize.height;
+            if (pixelRatio > thumbnailRatio) {
+                resultWidth = thumbnailSize.width;
+                resultHeight = ceil(thumbnailSize.width / pixelRatio);
+            } else {
+                resultHeight = thumbnailSize.height;
+                resultWidth = ceil(thumbnailSize.height * pixelRatio);
+            }
+        } else {
+            resultWidth = thumbnailSize.width;
+            resultHeight = thumbnailSize.height;
+        }
+    }
+    
+    return CGSizeMake(resultWidth, resultHeight);
+}
+
 @implementation SDImageLottieCoder {
     CGFloat _scale;
     Lottie_Animation * _animation;
@@ -64,10 +96,6 @@
 }
 
 - (UIImage *)decodedImageWithData:(NSData *)data options:(SDImageCoderOptions *)options {
-    NSBundle *bundle = NSBundle.mainBundle;
-    const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
-    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
     CGFloat scale = 1;
     NSNumber *scaleFactor = options[SDImageCoderDecodeScaleFactor];
     if (scaleFactor != nil) {
@@ -76,12 +104,31 @@
             scale = 1;
         }
     }
+    CGSize thumbnailSize = CGSizeZero;
+    NSValue *thumbnailSizeValue = options[SDImageCoderDecodeThumbnailPixelSize];
+    if (thumbnailSizeValue != nil) {
+#if SD_MAC
+        thumbnailSize = thumbnailSizeValue.sizeValue;
+#else
+        thumbnailSize = thumbnailSizeValue.CGSizeValue;
+#endif
+    }
+    BOOL preserveAspectRatio = YES;
+    NSNumber *preserveAspectRatioValue = options[SDImageCoderDecodePreserveAspectRatio];
+    if (preserveAspectRatioValue != nil) {
+        preserveAspectRatio = preserveAspectRatioValue.boolValue;
+    }
+    NSBundle *bundle = NSBundle.mainBundle;
+    const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
     Lottie_Animation *animation = lottie_animation_from_data(jsonData, "", resourcePath);
     if (!animation) {
         return nil;
     }
     size_t width = 0;
     size_t height = 0;
+    // Get lottie image container size
     lottie_animation_get_size(animation, &width, &height);
     if (width == 0 || height == 0) {
         lottie_animation_destroy(animation);
@@ -93,6 +140,11 @@
         return nil;
     }
     NSTimeInterval totalDuration = lottie_animation_get_duration(animation);
+    // Calculate the thumbnail size
+    CGSize scaledSize = SDCalculateThumbnailSize(CGSizeMake(width, height), preserveAspectRatio, thumbnailSize);
+    width = scaledSize.width;
+    height = scaledSize.height;
+    
     // Lottie surface use ARGB8888 Premultiplied
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Host;
     bitmapInfo |= kCGImageAlphaPremultipliedFirst;
@@ -128,7 +180,7 @@
     
     UIImage *animatedImage = [SDImageCoderHelper animatedImageWithFrames:frames];
     animatedImage.sd_imageLoopCount = 0;
-    animatedImage.sd_imageFormat = SDImageFormatWebP;
+    animatedImage.sd_imageFormat = SDImageFormatLottie;
     
     return animatedImage;
 }
@@ -171,6 +223,24 @@
         if (scaleFactor != nil) {
             scale = MAX([scaleFactor doubleValue], 1);
         }
+        CGSize thumbnailSize = CGSizeZero;
+        NSValue *thumbnailSizeValue = options[SDImageCoderDecodeThumbnailPixelSize];
+        if (thumbnailSizeValue != nil) {
+    #if SD_MAC
+            thumbnailSize = thumbnailSizeValue.sizeValue;
+    #else
+            thumbnailSize = thumbnailSizeValue.CGSizeValue;
+    #endif
+        }
+        BOOL preserveAspectRatio = YES;
+        NSNumber *preserveAspectRatioValue = options[SDImageCoderDecodePreserveAspectRatio];
+        if (preserveAspectRatioValue != nil) {
+            preserveAspectRatio = preserveAspectRatioValue.boolValue;
+        }
+        // Calculate the thumbnail size
+        CGSize scaledSize = SDCalculateThumbnailSize(CGSizeMake(width, height), preserveAspectRatio, thumbnailSize);
+        width = scaledSize.width;
+        height = scaledSize.height;
         _scale = scale;
         _width = width;
         _height = height;
