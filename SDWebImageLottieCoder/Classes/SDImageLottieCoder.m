@@ -15,7 +15,7 @@
 @import librlottie;
 #endif
 
-#define SD_FOUR_CC(c1,c2,c3,c4) ((uint32_t)(((c4) << 24) | ((c3) << 16) | ((c2) << 8) | (c1)))
+#define SD_TWO_CC(c1,c2) ((uint16_t)(((c2) << 8) | (c1)))
 
 #ifndef SD_LOCK
 #define SD_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
@@ -66,6 +66,8 @@
 - (UIImage *)decodedImageWithData:(NSData *)data options:(SDImageCoderOptions *)options {
     NSBundle *bundle = NSBundle.mainBundle;
     const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
     CGFloat scale = 1;
     NSNumber *scaleFactor = options[SDImageCoderDecodeScaleFactor];
     if (scaleFactor != nil) {
@@ -74,7 +76,7 @@
             scale = 1;
         }
     }
-    Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", resourcePath);
+    Lottie_Animation *animation = lottie_animation_from_data(jsonData, "", resourcePath);
     if (!animation) {
         return nil;
     }
@@ -148,7 +150,9 @@
     if (self) {
         NSBundle *bundle = NSBundle.mainBundle;
         const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
-        Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", resourcePath);
+        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
+        Lottie_Animation *animation = lottie_animation_from_data(jsonData, "", resourcePath);
         if (!animation) {
             return nil;
         }
@@ -244,10 +248,11 @@
     if (!data) {
         return NO;
     }
-    uint32_t magic4;
-    [data getBytes:&magic4 length:4]; // 4 Bytes Magic Code for most file format.
-    switch (magic4) {
-        case SD_FOUR_CC('{', '"', 'v', '"'): { // {"v"
+    uint16_t magic2;
+    [data getBytes:&magic2 length:2]; // Check JSON dict fast
+    switch (magic2) {
+        case SD_TWO_CC('{', '"'): // {"
+        case SD_TWO_CC('{', '\''): { // {'
             return YES;
         }
         default: {
