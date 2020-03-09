@@ -126,6 +126,10 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
     } else if (options[SDImageCoderDecodeLottieResourcePath]) {
         resourcePath = options[SDImageCoderDecodeLottieResourcePath];
     }
+    if (![resourcePath hasSuffix:@"/"]) {
+        // rlottie need the / suffix
+        resourcePath = [resourcePath stringByAppendingString:@"/"];
+    }
     NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     const char *jsonDataBuffer = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
     const char *resourcePathBuffer = [resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
@@ -213,6 +217,10 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
             resourcePath = context[SDWebImageContextLottieResourcePath];
         } else if (options[SDImageCoderDecodeLottieResourcePath]) {
             resourcePath = options[SDImageCoderDecodeLottieResourcePath];
+        }
+        if (![resourcePath hasSuffix:@"/"]) {
+            // rlottie need the / suffix
+            resourcePath = [resourcePath stringByAppendingString:@"/"];
         }
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         const char *jsonDataBuffer = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];

@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char SDWebImageLottieCoderVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <SDWebImageLottieCoder/PublicHeader.h>
 
 #import <SDWebImageLottieCoder/SDImageLottieCoder.h>
+#import <SDWebImageLottieCoder/SDWebImageLottieLoaderDefine.h>

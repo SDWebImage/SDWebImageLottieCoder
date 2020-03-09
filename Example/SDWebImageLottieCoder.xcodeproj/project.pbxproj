@@ -13,6 +13,8 @@
 		3255DDF024162F410082B1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3255DDEF24162F410082B1B3 /* Assets.xcassets */; };
 		3255DDF324162F410082B1B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3255DDF124162F410082B1B3 /* Main.storyboard */; };
 		3255DDF624162F410082B1B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3255DDF524162F410082B1B3 /* main.m */; };
+		3255DE0E241650ED0082B1B3 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 3255DE0C241650ED0082B1B3 /* images */; };
+		3255DE0F241650ED0082B1B3 /* lotties in Resources */ = {isa = PBXBuildFile; fileRef = 3255DE0D241650ED0082B1B3 /* lotties */; };
 		35B2D5EA7659A6FA2038E406 /* Pods_SDWebImageLottieCoder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791588DF62814977FCC95203 /* Pods_SDWebImageLottieCoder_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -53,6 +55,8 @@
 		3255DDF424162F410082B1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3255DDF524162F410082B1B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3255DDF724162F410082B1B3 /* SDWebImageLottieCoder_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SDWebImageLottieCoder_Example_macOS.entitlements; sourceTree = "<group>"; };
+		3255DE0C241650ED0082B1B3 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		3255DE0D241650ED0082B1B3 /* lotties */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lotties; sourceTree = "<group>"; };
 		4675E56A102F5DE95AA6DD9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		4896D47A187D8A65793D88D6 /* Pods-SDWebImageLottieCoder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Tests/Pods-SDWebImageLottieCoder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		55EB13A8FEA66A9153D3B296 /* Pods-SDWebImageLottieCoder_Example macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottieCoder_Example macOS.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottieCoder_Example macOS/Pods-SDWebImageLottieCoder_Example macOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3255DE0C241650ED0082B1B3 /* images */,
+				3255DE0D241650ED0082B1B3 /* lotties */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -373,6 +379,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3255DE0F241650ED0082B1B3 /* lotties in Resources */,
+				3255DE0E241650ED0082B1B3 /* images in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
