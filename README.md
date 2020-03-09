@@ -11,33 +11,42 @@
 
 This is a coder plugin for [Lottie Animation format](https://airbnb.design/lottie/).
 
-## Differences 
+## Differences
 
 We've already built one Lottie plugin, called [SDWebImageLottiePlugin](https://github.com/SDWebImage/SDWebImageLottiePlugin).
 
-The main difference for this two components, it's `How we play animation`, and `The dependency we use`.
+The main difference for these two components, it's `How we play animation`, and `What dependency we use`. In order to reduce the code size for unnecessary dependency, we separate these into 2 different repos.
 
 ### SDWebImageLottiePlugin
 
-This lottie framework dependent [lottie-ios](https://github.com/airbnb/lottie-ios), which is maintained by Airbnb, This plugin can only play animation by using their own `LOTAnimationView`.
+This lottie framework dependent [lottie-ios](https://github.com/airbnb/lottie-ios), which is maintained by Airbnb.
 
-Pros: It use vector rendering technology like Core Animation Layer, which means you can change your view dynamic size without lossing details or regenerate images.
+This plugin can only play animation by using their own `LOTAnimationView`.
 
-Cons: Vector rendering is much slower than bitmap rendering. For small and massive lottie images, like emojis, small icons, this is not suitable.
++ Pros: It use vector rendering technology like Core Animation Layer, which means you can change your view dynamic size without lossing details or regenerate images.
+
++ Cons: Vector rendering is much slower than bitmap rendering. For small and massive lottie images, like emojis, small icons, this is not suitable.
 
 ### SDWebImageLottieCoder
 
 This lottie framework dependent [rlottie](https://github.com/Samsung/rlottie), which is maintained by Samsung.
 
-Pros: It use bitmap rendering, which means it can be played on [SDAnimatedImageView](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#animated-image-50), or even normal UIImageView. You can also preload all frames into memory, to get the best performance and 60FPS. This is also easy to integrate to UIKit/AppKit native framework.
+This plugin can play animation on both [SDAnimatedImageView](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#animated-image-50) and `UIImageView/NSImageView`.
 
-Cons: Bitmap rendering does not support dynamic size changes. Once you want larger images, you need re-decoding the source lottie JSON, which is time-consuming and RAM consuming.
++ Pros: It use bitmap rendering, each animation frame are rendered into the rasterized bitmap, not vector images. You can also preload all frames into memory, to get the best performance and 60FPS. This is also easy to integrate to UIKit/AppKit native framework.
+
++ Cons: Bitmap rendering does not support dynamic size changes. Once you want larger images, you need re-decoding the source lottie JSON, which is time-consuming and RAM consuming.
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
++ iOS 9
++ macOS 10.10
++ tvOS 9.0
++ watchOS 2.0
 
 ## Installation
 
@@ -74,6 +83,70 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'SDWebImageLottieCoder'
+```
+
+## Usage
+
+### Add Coder
+
+Before using SDWebImage to load Lottie json, you need to register the Lottie Coder to your coders manager. This step is recommended to be done after your App launch (like AppDelegate method).
+
++ Objective-C
+
+```objective-c
+// Add coder
+SDImageLottieCoder *lottieCoder = [SDImageLottieCoder sharedCoder];
+[[SDImageCodersManager sharedManager] addCoder:lottieCoder];
+```
+
++ Swift
+
+```swift
+// Add coder
+let lottieCoder = SDImageLottieCoder.shared
+SDImageCodersManager.shared.addCoder(lottieCoder)
+```
+
+### Loading
+
++ Objective-C
+
+```objective-c
+// Lottie json loading
+NSURL *lottieURL;
+UIImageView *imageView;
+[imageView sd_setImageWithURL:lottieURL];
+```
+
++ Swift
+
+```swift
+// Lottie json loading
+let lottieURL: URL
+let imageView: UIImageView
+imageView.sd_setImage(with: lottieURL)
+```
+
+### Animation and Size
+
++ Objective-C
+
+```objective-c
+// Lottie json loading on animated image view
+NSURL *lottieURL;
+SDAnimatedImageView *imageView;
+CGSize pixelSize = CGSizeMake(300, 300);
+[imageView sd_setImageWithURL:lottieURL placeholderImage:nil options:0 context:@{SDWebImageThumbnailPixelSize:@(pixelSize)}];
+```
+
++ Swift
+
+```swift
+// Lottie json loading on animated image view
+let lottieURL: URL
+let imageView: SDAnimatedImageView
+let pixelSize = CGSize(width: 300, height: 300)
+imageView.sd_setImage(with: lottieURL, placeholderImage: nil, options: [], contrext: [.thumbnailPixelSize : pixelSize])
 ```
 
 ## Author
