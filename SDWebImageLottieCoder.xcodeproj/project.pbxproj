@@ -27,6 +27,14 @@
 		3249BD1D24152F4900E29E73 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249BD1A24152F4900E29E73 /* SDWebImage.framework */; };
 		3249BD2224152F5700E29E73 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249BD2024152F5700E29E73 /* SDWebImage.framework */; };
 		3249BD2424152F5700E29E73 /* librlottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249BD2124152F5700E29E73 /* librlottie.framework */; };
+		32A86513241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */; };
+		32A86514241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */; };
+		32A86515241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */; };
+		32A86516241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */; };
+		32A86517241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32A86518241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32A86519241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32A8651A241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,8 @@
 		3249BD1A24152F4900E29E73 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/tvOS/SDWebImage.framework; sourceTree = "<group>"; };
 		3249BD2024152F5700E29E73 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/watchOS/SDWebImage.framework; sourceTree = "<group>"; };
 		3249BD2124152F5700E29E73 /* librlottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = librlottie.framework; path = Carthage/Build/watchOS/librlottie.framework; sourceTree = "<group>"; };
+		32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageLottieLoaderDefine.m; sourceTree = "<group>"; };
+		32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageLottieLoaderDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,8 @@
 			children = (
 				3249BCCF241512F900E29E73 /* SDImageLottieCoder.h */,
 				3249BCD0241512F900E29E73 /* SDImageLottieCoder.m */,
+				32A86512241663750023BED3 /* SDWebImageLottieLoaderDefine.h */,
+				32A86511241663750023BED3 /* SDWebImageLottieLoaderDefine.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -151,6 +163,7 @@
 			files = (
 				3249BCD2241512F900E29E73 /* SDImageLottieCoder.h in Headers */,
 				3249BCC724150E0800E29E73 /* SDWebImageLottieCoder.h in Headers */,
+				32A86517241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +173,7 @@
 			files = (
 				3249BCFB2415137700E29E73 /* SDImageLottieCoder.h in Headers */,
 				3249BCFC2415137700E29E73 /* SDWebImageLottieCoder.h in Headers */,
+				32A86518241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +183,7 @@
 			files = (
 				3249BCFD2415137700E29E73 /* SDImageLottieCoder.h in Headers */,
 				3249BCFE2415137700E29E73 /* SDWebImageLottieCoder.h in Headers */,
+				32A86519241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +193,7 @@
 			files = (
 				3249BCFF2415137800E29E73 /* SDImageLottieCoder.h in Headers */,
 				3249BD002415137800E29E73 /* SDWebImageLottieCoder.h in Headers */,
+				32A8651A241663750023BED3 /* SDWebImageLottieLoaderDefine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86513241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */,
 				3249BCD3241512F900E29E73 /* SDImageLottieCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86514241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */,
 				3249BD012415138400E29E73 /* SDImageLottieCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86515241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */,
 				3249BD022415138400E29E73 /* SDImageLottieCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86516241663750023BED3 /* SDWebImageLottieLoaderDefine.m in Sources */,
 				3249BD032415138400E29E73 /* SDImageLottieCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +570,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,7 +598,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -605,7 +625,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -633,7 +653,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -662,7 +682,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder watchOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,7 +694,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -691,7 +711,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
-				INFOPLIST_FILE = "SDWebImageLottieCoder watchOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottieCoder/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -703,7 +723,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
