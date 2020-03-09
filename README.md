@@ -149,6 +149,12 @@ let pixelSize = CGSize(width: 300, height: 300)
 imageView.sd_setImage(with: lottieURL, placeholderImage: nil, options: [], contrext: [.thumbnailPixelSize : pixelSize])
 ```
 
+## Screenshot
+
+<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottieCoder/master/Example/Screenshot/LottieDemo.png" width="300" />
+
+These Lottie animation stickers are from [lottiefiles-telegram](https://lottiefiles.com/animated-stickers/animated-contest-4-at-tgsticker)
+
 ## Author
 
 DreamPiggy, lizhuoli1126@126.com

@@ -1,14 +1,45 @@
-# references:
-# * https://www.objc.io/issues/6-build-tools/travis-ci/
-# * https://github.com/supermarin/xcpretty#usage
-
-osx_image: xcode7.3
 language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+osx_image: xcode11.2
+
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    
+addons:
+  ssh_known_hosts: github.com
+
+notifications:
+  email: false
+  
+before_install:
+  - env
+  - locale
+  - gem install cocoapods --no-document --quiet
+  - gem install xcpretty --no-document --quiet
+  - pod --version
+  - pod repo update --silent
+  - xcpretty --version
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme SDWebImageLottieCoder-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - set -o pipefail
+
+  - echo Check if the library described by the podspec can be built
+  - pod lib lint --allow-warnings
+
+  - echo Build example
+  - pod install --project-directory=Example
+  - xcodebuild build -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme SDWebImageLottieCoder-Example -sdk iphonesimulator -destination 'name=iPhone 11 Pro' | xcpretty -c
+
+  - echo Clean DerivedData
+  - rm -rf ~/Library/Developer/Xcode/DerivedData/
+  - mkdir DerivedData
+
+  - echo Run the tests
+  - xcodebuild clean test -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme 'SDWebImageLottieCoder_Tests' -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug -UseModernBuildSystem=NO CODE_SIGNING_ALLOWED=NO | xcpretty -c
+  - mv ~/Library/Developer/Xcode/DerivedData/ ./DerivedData/iOS
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash) -D './DerivedData/iOS' -J '^SDWebImageLottieCoder$' -F 'iOS'
