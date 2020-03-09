@@ -8,7 +8,7 @@
 
 #import "SDViewController.h"
 #import <SDWebImage/SDWebImage.h>
-#import <SDWebImageLottieCoder/SDImageLottieCoder.h>
+#import <SDWebImageLottieCoder/SDWebImageLottieCoder.h>
 
 @interface SDViewController ()
 

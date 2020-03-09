@@ -17,6 +17,14 @@
 
 #define SD_FOUR_CC(c1,c2,c3,c4) ((uint32_t)(((c4) << 24) | ((c3) << 16) | ((c2) << 8) | (c1)))
 
+#ifndef SD_LOCK
+#define SD_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#endif
+
+#ifndef SD_UNLOCK
+#define SD_UNLOCK(lock) dispatch_semaphore_signal(lock);
+#endif
+
 @implementation SDImageLottieCoder {
     CGFloat _scale;
     Lottie_Animation * _animation;
@@ -26,6 +34,7 @@
     NSUInteger _loopCount;
     NSUInteger _frameCount;
     NSTimeInterval _totalDuration;
+    dispatch_semaphore_t _lock;
 }
 
 + (SDImageLottieCoder *)sharedCoder {
@@ -64,7 +73,7 @@
         }
     }
     
-    Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", "");
+    Lottie_Animation *animation = lottie_animation_from_data(data.bytes, NULL, NULL);
     if (!animation) {
         return nil;
     }
@@ -136,7 +145,7 @@
 - (instancetype)initWithAnimatedImageData:(NSData *)data options:(SDImageCoderOptions *)options {
     self = [super init];
     if (self) {
-        Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", "");
+        Lottie_Animation *animation = lottie_animation_from_data(data.bytes, NULL, NULL);
         if (!animation) {
             return nil;
         }
@@ -163,6 +172,7 @@
         _totalDuration = totalDuration;
         _animation = animation;
         _imageData = data;
+        _lock = dispatch_semaphore_create(1);
         
     }
     return self;
@@ -188,6 +198,16 @@
 }
 
 - (UIImage *)animatedImageFrameAtIndex:(NSUInteger)index {
+    if (index >= _frameCount) {
+        return nil;
+    }
+    SD_LOCK(_lock);
+    UIImage *image = [self safeAnimatedImageFrameAtIndex:index];
+    SD_UNLOCK(_lock);
+    return image;
+}
+
+- (UIImage *)safeAnimatedImageFrameAtIndex:(NSUInteger)index {
     if (!_canvas) {
         // Lottie surface use ARGB8888 Premultiplied
         CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Host;
