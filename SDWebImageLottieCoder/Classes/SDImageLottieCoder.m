@@ -64,6 +64,8 @@
 }
 
 - (UIImage *)decodedImageWithData:(NSData *)data options:(SDImageCoderOptions *)options {
+    NSBundle *bundle = NSBundle.mainBundle;
+    const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
     CGFloat scale = 1;
     NSNumber *scaleFactor = options[SDImageCoderDecodeScaleFactor];
     if (scaleFactor != nil) {
@@ -72,8 +74,7 @@
             scale = 1;
         }
     }
-    
-    Lottie_Animation *animation = lottie_animation_from_data(data.bytes, NULL, NULL);
+    Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", resourcePath);
     if (!animation) {
         return nil;
     }
@@ -145,7 +146,9 @@
 - (instancetype)initWithAnimatedImageData:(NSData *)data options:(SDImageCoderOptions *)options {
     self = [super init];
     if (self) {
-        Lottie_Animation *animation = lottie_animation_from_data(data.bytes, NULL, NULL);
+        NSBundle *bundle = NSBundle.mainBundle;
+        const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+        Lottie_Animation *animation = lottie_animation_from_data(data.bytes, "", resourcePath);
         if (!animation) {
             return nil;
         }
