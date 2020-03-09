@@ -151,7 +151,7 @@ imageView.sd_setImage(with: lottieURL, placeholderImage: nil, options: [], contr
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottieCoder/master/Example/Screenshot/LottieDemo.png" width="300" />
+<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottieCoder/master/Example/Screenshot/LottieDemo.gif" width="300" />
 
 These Lottie animation stickers are from [lottiefiles-telegram](https://lottiefiles.com/animated-stickers/animated-contest-4-at-tgsticker)
 
