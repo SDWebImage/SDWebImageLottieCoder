@@ -7,6 +7,7 @@
 */
 
 #import "SDImageLottieCoder.h"
+#import "SDWebImageLottieLoaderDefine.h"
 #if __has_include(<rlottie/rlottie_capi.h>)
 #import <rlottie/rlottie_capi.h>
 #elif __has_include(<librlottie/librlottie.h>)
@@ -118,11 +119,17 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
     if (preserveAspectRatioValue != nil) {
         preserveAspectRatio = preserveAspectRatioValue.boolValue;
     }
-    NSBundle *bundle = NSBundle.mainBundle;
-    const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+    NSString *resourcePath = NSBundle.mainBundle.resourcePath;
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    if (context[SDWebImageContextLottieResourcePath]) {
+        resourcePath = context[SDWebImageContextLottieResourcePath];
+    } else if (options[SDImageCoderDecodeLottieResourcePath]) {
+        resourcePath = options[SDImageCoderDecodeLottieResourcePath];
+    }
     NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
-    Lottie_Animation *animation = lottie_animation_from_data(jsonData, "", resourcePath);
+    const char *jsonDataBuffer = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *resourcePathBuffer = [resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+    Lottie_Animation *animation = lottie_animation_from_data(jsonDataBuffer, "", resourcePathBuffer);
     if (!animation) {
         return nil;
     }
@@ -200,11 +207,17 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
 - (instancetype)initWithAnimatedImageData:(NSData *)data options:(SDImageCoderOptions *)options {
     self = [super init];
     if (self) {
-        NSBundle *bundle = NSBundle.mainBundle;
-        const char *resourcePath = [bundle.resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+        NSString *resourcePath = NSBundle.mainBundle.resourcePath;
+        SDWebImageContext *context = options[SDImageCoderWebImageContext];
+        if (context[SDWebImageContextLottieResourcePath]) {
+            resourcePath = context[SDWebImageContextLottieResourcePath];
+        } else if (options[SDImageCoderDecodeLottieResourcePath]) {
+            resourcePath = options[SDImageCoderDecodeLottieResourcePath];
+        }
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        const char *jsonData = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
-        Lottie_Animation *animation = lottie_animation_from_data(jsonData, "", resourcePath);
+        const char *jsonDataBuffer = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
+        const char *resourcePathBuffer = [resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
+        Lottie_Animation *animation = lottie_animation_from_data(jsonDataBuffer, "", resourcePathBuffer);
         if (!animation) {
             return nil;
         }

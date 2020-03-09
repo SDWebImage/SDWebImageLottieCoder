@@ -149,6 +149,28 @@ let pixelSize = CGSize(width: 300, height: 300)
 imageView.sd_setImage(with: lottieURL, placeholderImage: nil, options: [], contrext: [.thumbnailPixelSize : pixelSize])
 ```
 
+### Decoding
+
+You can decode lottie image into aniamted UIImage/NSImage as well. If the lottie images have [referenced external image resource](https://airbnb.io/lottie/#/supported-features), you can specify it as well.
+
++ Objective-C
+
+```objective-c
+// Lottie image decoding
+NSData *lottieJSONData;
+NSBundle *imageBundle; // You can even download the external image from online to local path, then load the lottie animation
+UIImage *image = [[SDImageLottieCoder sharedCoder] decodedImageWithData:lottieJSONData options:@{SDImageCoderDecodeLottieResourcePath : imageBundle.resourcePath}];
+```
+
++ Swift
+
+```swift
+// Lottie image decoding
+let lottieJSONData: Data
+let imageBundle: Bundle // You can even download the external image from online to local path, then load the lottie animation
+let image = SDImageWebPCoder.shared.decodedImage(with: lottieJSONData, options: [.lottieResourcePath : imageBundle.resourcePath])
+```
+
 ## Screenshot
 
 <img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottieCoder/master/Example/Screenshot/LottieDemo.gif" width="300" />
