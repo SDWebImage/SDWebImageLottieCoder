@@ -1,63 +1,65 @@
-/*
-* This file is part of the SDWebImage package.
-* (c) DreamPiggy <lizhuoli1126@126.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+//
+//  ViewController.m
+//  SDWebImageLottieCoder_Example macOS
+//
+//  Created by 李卓立 on 2020/3/9.
+//  Copyright © 2020 lizhuoli1126@126.com. All rights reserved.
+//
 
-#import "SDViewController.h"
+#import "ViewController.h"
 #import <SDWebImage/SDWebImage.h>
 #import <SDWebImageLottieCoder/SDWebImageLottieCoder.h>
 
-@interface MyCustomTableViewCell : UITableViewCell
+@interface MyCustomCollectionViewItem : NSCollectionViewItem
 
-@property (nonatomic, strong) UILabel *customTextLabel;
-@property (nonatomic, strong) SDAnimatedImageView *customImageView;
+@property (strong) NSImageView *imageViewDisplay;
 
 @end
 
-@implementation MyCustomTableViewCell
+@interface MyCustomCollectionViewItem ()
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        _customImageView = [[SDAnimatedImageView alloc] initWithFrame:CGRectMake(20.0, 2.0, 60.0, 40.0)];
-        [self.contentView addSubview:_customImageView];
-        _customTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 12.0, 200, 20.0)];
-        [self.contentView addSubview:_customTextLabel];
-        
-        _customImageView.clipsToBounds = YES;
-        _customImageView.contentMode = UIViewContentModeScaleAspectFill;
-    }
-    return self;
+@end
+
+@implementation MyCustomCollectionViewItem
+
+- (void)loadView {
+    self.view = [NSView new];
+    self.view.wantsLayer = YES;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.imageViewDisplay = [SDAnimatedImageView new];
+    [self.view addSubview:self.imageViewDisplay];
+}
+
+- (void)viewDidLayout {
+    [super viewDidLayout];
+    self.imageViewDisplay.frame = self.view.bounds;
 }
 
 @end
 
-@interface SDViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <NSCollectionViewDelegate, NSCollectionViewDataSource>
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray<NSString *> *objects;
+@property (strong) NSScrollView *scrollView;
+@property (strong) NSCollectionView *collectionView;
+@property (strong) NSMutableArray<NSString *> *objects;
 
 @end
 
-@implementation SDViewController
+@implementation ViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
-    self.title = @"SDWebImage";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"Clear Cache"
-                                                                            style:UIBarButtonItemStylePlain
-                                                                           target:self
-                                                                           action:@selector(flushCache)];
+    
     // Add coder
     [SDImageCodersManager.sharedManager addCoder:SDImageLottieCoder.sharedCoder];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // Lottie URLs
     self.objects = [NSMutableArray arrayWithObjects:
                     @"https://assets6.lottiefiles.com/animated_stickers/lf_tgs_HktDR1.json",
@@ -111,50 +113,45 @@
                     @"https://assets6.lottiefiles.com/animated_stickers/lf_tgs_3M8O4q.json",
                     nil];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
-    [self.tableView reloadData];
+    self.collectionView = [[NSCollectionView alloc] initWithFrame:self.view.bounds];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    NSCollectionViewGridLayout *layout = [NSCollectionViewGridLayout new];
+    layout.minimumItemSize = CGSizeMake(300, 300);
+    layout.maximumItemSize = CGSizeMake(500, 500);
+    self.collectionView.collectionViewLayout = layout;
+    [self.collectionView registerClass:MyCustomCollectionViewItem.class forItemWithIdentifier:@"MyCustomCollectionViewItem"];
+    
+    self.scrollView = [NSScrollView new];
+    self.scrollView.documentView = self.collectionView;
+    [self.view addSubview:self.scrollView];
+    
+    [self.collectionView reloadData];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    self.tableView.frame = self.view.bounds;
+- (void)viewDidLayout {
+    [super viewDidLayout];
+    self.scrollView.frame = self.view.bounds;
+    self.collectionView.frame = self.scrollView.bounds;
 }
 
-- (void)flushCache {
-    [SDWebImageManager.sharedManager.imageCache clearWithCacheType:SDImageCacheTypeAll completion:nil];
-}
-
-#pragma mark - Table View
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    MyCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[MyCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.customImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayIndicator;
-    }
-    
-    cell.customTextLabel.text = [NSString stringWithFormat:@"Image #%ld", (long)indexPath.row];
-    [cell.customImageView sd_setImageWithURL:[NSURL URLWithString:self.objects[indexPath.row]]
-                            placeholderImage:nil
-                                     options:0
-                                     context:nil];
+- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {
+    return 1;
+}
+
+- (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
+    MyCustomCollectionViewItem *cell = [collectionView makeItemWithIdentifier:@"MyCustomCollectionViewItem" forIndexPath:indexPath];
+    cell.imageViewDisplay.sd_imageIndicator = SDWebImageActivityIndicator.grayIndicator;
+    [cell.imageViewDisplay sd_setImageWithURL:[NSURL URLWithString:self.objects[indexPath.item]]
+                             placeholderImage:nil
+                                      options:0
+                                      context:nil];
     return cell;
 }
+
 
 @end

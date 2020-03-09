@@ -1,16 +1,15 @@
-/*
-* This file is part of the SDWebImage package.
-* (c) DreamPiggy <lizhuoli1126@126.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+//
+//  AppDelegate.m
+//  SDWebImageLottieCoder_Example macOS
+//
+//  Created by 李卓立 on 2020/3/9.
+//  Copyright © 2020 lizhuoli1126@126.com. All rights reserved.
+//
 
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate

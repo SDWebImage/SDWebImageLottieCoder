@@ -11,7 +11,7 @@ target 'SDWebImageLottieCoder_Example' do
   end
 end
 
-target 'SDWebImageLottieCoder-Example-macOS' do
-  platform :osx, '10.10'
+target 'SDWebImageLottieCoder_Example macOS' do
+  platform :osx, '10.11'
   pod 'SDWebImageLottieCoder', :path => '../'
 end

@@ -31,7 +31,8 @@ script:
 
   - echo Build example
   - pod install --project-directory=Example
-  - xcodebuild build -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme SDWebImageLottieCoder-Example -sdk iphonesimulator -destination 'name=iPhone 11 Pro' | xcpretty -c
+  - xcodebuild build -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme 'SDWebImageLottieCoder-Example' -destination 'name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace Example/SDWebImageLottieCoder.xcworkspace -scheme 'SDWebImageLottieCoder-Example macOS' -destination 'platform=macOS,arch=x86_64' -configuration Debug | xcpretty -c
 
   - echo Clean DerivedData
   - rm -rf ~/Library/Developer/Xcode/DerivedData/
