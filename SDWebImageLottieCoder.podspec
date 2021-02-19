@@ -27,12 +27,12 @@ A Lottie animation coder which use SDAnimatedImageView instead of LOTAnimationVi
   s.source           = { :git => 'https://github.com/SDWebImage/SDWebImageLottieCoder.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.10'
+  s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
 
   s.source_files = 'SDWebImageLottieCoder/Classes/**/*', 'SDWebImageLottieCoder/Module/SDWebImageLottieCoder.h'
   
-  s.dependency 'SDWebImage', '~> 5.6'
-  s.dependency 'librlottie', '~> 0.1'
+  s.dependency 'SDWebImage', '~> 5.10'
+  s.dependency 'librlottie', '~> 0.2'
 end
