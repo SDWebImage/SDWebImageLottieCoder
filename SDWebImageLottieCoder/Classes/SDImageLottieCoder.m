@@ -15,6 +15,7 @@
 #else
 @import librlottie;
 #endif
+#import <CommonCrypto/CommonDigest.h>
 
 #define SD_TWO_CC(c1,c2) ((uint16_t)(((c2) << 8) | (c1)))
 
@@ -56,6 +57,18 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
     }
     
     return CGSizeMake(resultWidth, resultHeight);
+}
+
+static NSString *SDCalculateMD5(NSString *input) {
+    const char* str = [input UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(str, (CC_LONG)strlen(str), result);
+
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];
+    for(int i = 0; i<CC_MD5_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@"%02x",result[i]];
+    }
+    return ret;
 }
 
 @implementation SDImageLottieCoder {
@@ -225,7 +238,10 @@ static CGSize SDCalculateThumbnailSize(CGSize fullSize, BOOL preserveAspectRatio
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         const char *jsonDataBuffer = [jsonString cStringUsingEncoding:NSUTF8StringEncoding];
         const char *resourcePathBuffer = [resourcePath cStringUsingEncoding:NSUTF8StringEncoding];
-        Lottie_Animation *animation = lottie_animation_from_data(jsonDataBuffer, "", resourcePathBuffer);
+        // rlottie C API use cache by default, so we must calculate cache key
+        NSString *cacheKey = SDCalculateMD5(jsonString);
+        const char *cacheKeyBuffer = [cacheKey cStringUsingEncoding:NSUTF8StringEncoding];
+        Lottie_Animation *animation = lottie_animation_from_data(jsonDataBuffer, cacheKeyBuffer, resourcePathBuffer);
         if (!animation) {
             return nil;
         }
