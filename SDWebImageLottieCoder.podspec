@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageLottieCoder'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'A SDWebImage coder plugin for Lottie animation'
 
 # This description is used to generate tags and improve search results.
